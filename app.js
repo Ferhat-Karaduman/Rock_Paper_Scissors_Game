@@ -34,7 +34,6 @@ function resetSelected() {
 }
 function computerRandomChoice() {
   const computerChoiceNumber = Math.random();
-  // console.log(computerChoiceNumber);
   if (computerChoiceNumber < 0.3) {
     computerChoice = 'rock';
   } else if (computerChoiceNumber <= 0.65) {
@@ -48,15 +47,15 @@ function displayComputerChoice() {
   switch (computerChoice) {
     case 'rock':
       computerRock.classList.add('selected');
-      computerTurn.textContent = ' --- Taş';
+      computerTurn.textContent = ' --- Rock';
       break;
     case 'paper':
       computerPaper.classList.add('selected');
-      computerTurn.textContent = ' --- Kağıt';
+      computerTurn.textContent = ' --- Paper';
       break;
     case 'scissors':
       computerScissors.classList.add('selected');
-      computerTurn.textContent = ' --- Makas';
+      computerTurn.textContent = ' --- Scissors';
       break;
   }
 }
@@ -73,21 +72,20 @@ function resetAll() {
 }
 
 function updateScore(playerChoice) {
-  // console.log(playerChoice, computerChoice);
   if (playerChoice === computerChoice) {
-    resultText.textContent = 'Berabere.';
+    resultText.textContent = 'Draw.';
   } else {
     const choice = choices[playerChoice];
     console.log(choice);
     console.log(choice.win.indexOf(computerChoice));
     if (choice.win.indexOf(computerChoice) === 0) {
       playerScoreNumber++;
-      resultText.textContent = 'Can Boz kazandı.';
+      resultText.textContent = 'Ferhat won.';
       playerScore.textContent = playerScoreNumber;
       startConfetti();
     } else {
       computerScoreNumber++;
-      resultText.textContent = 'Osman kazandı.';
+      resultText.textContent = 'Jonas won.';
       computerScore.textContent = computerScoreNumber;
     }
   }
@@ -101,22 +99,21 @@ function checkResult(playerChoice) {
 }
 
 function select(playerChoice) {
-  // console.log(playerChoice);
 
   checkResult(playerChoice);
 
   switch (playerChoice) {
     case 'rock':
       playerRock.classList.add('selected');
-      playerTurn.textContent = ' --- Taş';
+      playerTurn.textContent = ' --- Rock';
       break;
     case 'paper':
       playerPaper.classList.add('selected');
-      playerTurn.textContent = ' --- Kağıt';
+      playerTurn.textContent = ' --- Paper';
       break;
     case 'scissors':
       playerScissors.classList.add('selected');
-      playerTurn.textContent = ' --- Makas';
+      playerTurn.textContent = ' --- Scissors';
       break;
   }
 }
